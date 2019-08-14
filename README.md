@@ -1,6 +1,12 @@
 # SGE Experiment Runner
 Tool to generate SGE scripts based on a experiment config. The program expects a yaml file `config/experiments.yaml` and a script to run `config/base.sh` (both have been pre-populated with an example).
 
+## Installation
+```
+$ git clone git@github.com:jackdeadman/sge-experiment-runner.git
+$ pip install -r requirements.txt
+```
+
 ## Experiments.yaml
 The highest level keys represent the different experiement setups. The special key "base" is not an experiment, all experiments inherit attributes from base (these can be overidden). Each key value pair inside an experiment is passed to `config/base.sh` in the form `--key value --key2 another_value etc.`
 
