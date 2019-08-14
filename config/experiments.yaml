@@ -1,0 +1,29 @@
+base:
+        learning_rate: 0.0001
+        batch: 100
+        images: 'video_frames_small.flist'
+        epochs: 5
+        sge:
+                base:
+                        M: 'jdeadman1@sheffield.ac.uk'
+                        m: 'bea'
+                        l: 'rmem=16G,gpu=1,h_rt=24:00:00'
+                        o: 'logs/{:name}/{:date}.log'
+                        j: 'y'
+                rse:
+                        q: 'rse.q'
+                        P: 'rse'
+                
+mse:
+        loss: 'mse'
+
+kl:
+        loss: 'kl'
+
+mse_bigger:
+        loss: 'mse'
+        batch: 1000
+
+mse_small:
+        loss: 'mse'
+        batch: 1
