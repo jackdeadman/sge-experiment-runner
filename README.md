@@ -1,5 +1,5 @@
 # SGE Experiment Runner
-Tool to generate SGE scripts based on a experiment config. The program expects a yaml file `config/experiments.yaml` and a script to run `config/base.sh` (both have been pre-populated with an example).
+Tool to generate SGE scripts based on an experiment config. The program expects a yaml file `config/experiments.yaml` and a script to run `config/base.sh` (both have been pre-populated with an example).
 
 ## Installation
 ```
