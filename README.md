@@ -22,7 +22,7 @@ Using the example config:
 python run_experiment.py mse rse
 ```
 
-The resulting "sge" file will be displayed and you will be prompted to whether you want to submit this job. This will create the file and place it inside the `sge_scripts` directory and resulting log files from the job will be dumped to `log`
+The resulting "sge" file will be displayed and you will be prompted to whether you want to submit this job. This will create the file and place it inside the `sge_scripts` directory and resulting log files from the job will be dumped to `logs`
 
 Generated SGE file:
 
