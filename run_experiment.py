@@ -34,11 +34,38 @@ def create_command(options):
     flags = ' '.join([ '--%s %s' % (flag, value) for flag, value in options.items() ])
     return flags
 
+def interactive_select(experiments):
+    # Only import if we need to use it
+    from PyInquirer import prompt
+    # Currently only display ones in the base experiment
+    queues = list(experiments.values())[0]['sge'].keys()
+    questions = [
+        {   'type': 'list',
+            'name': 'experiment',
+            'message': 'Select the experiment to run',
+            'choices': experiments.keys()
+        },
+
+        {   'type': 'list',
+            'name': 'queue',
+            'message': 'Select the queue to use',
+            'choices': queues
+        }
+    ]
+
+    res = prompt(questions)
+    experiment, queue = res['experiment'], res['queue']
+    return experiment, queue
+
 def main():
-    experiment, queue = experiment_and_queue()
 
     with open(CONF) as f:
         experiments = yaml.load(f)
+
+    if len(sys.argv) == 1:
+        experiment, queue = interactive_select(experiments)
+    else:
+        experiment, queue = experiment_and_queue()
 
     options = build_options(experiment, experiments)
     options['name'] = experiment
